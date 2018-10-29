@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Website Description">
+<title>
+Fitness - Introduction
+</title>
+
+
+  <link href="https://drjorts.firebaseapp.com/fitness/index.xml" rel="alternate" type="application/rss+xml" title="Introduction" />
+
+
+        <meta property="og:title" content="Fitness - Introduction" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Website Description"/>
+<meta property="og:url" content="https://drjorts.firebaseapp.com/fitness/"/>
+<meta property="og:site_name" content="Introduction"/>
+
+
+
+
+<meta property="og:image" content="https://drjorts.firebaseapp.com/home/me.jpg"/>
+
+<meta property="og:image" content="https://drjorts.firebaseapp.com/home/profile.jpg"/>
+
+
+
+
+        
+<link rel="shortcut icon" href="https://drjorts.firebaseapp.com/img/fav.ico">
+
+
+        
+
+
+
+
+
+<link rel="stylesheet" href="https://drjorts.firebaseapp.com/css/main.min.8cd6e972f12906c2d19917d7fd5d1de3c32d67ace6a8da5b2856f34ebbdb74ca.css" integrity="sha256-jNbpcvEpBsLRmRfX/V0d48MtZ6zmqNpbKFbzTrvbdMo=" media="screen">
+
+
+
+
+
+        
+        
+        
+        
+    </head>
+    <body>
+        <section id="top" class="section">
+            
+            <div class="container hero ">
+                
+                <h1 class="bold-title is-1">Fitness</h1>
+                
+            </div>
+            
+            <div class="section ">
+                
+<div class="container">
+    <hr>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        
+        <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+        <div class="navbar-menu" id="navMenu">
+            
+            
+            
+            
+            <a class="navbar-item" href="/">
+                
+                Home
+                
+            </a>
+            
+            
+            
+            <a class="navbar-item" href="/blog/">
+                
+                Blog
+                
+            </a>
+            
+            
+            
+            <a class="navbar-item" href="/blog/">
+                
+                Burgers
+                
+            </a>
+            
+            
+            
+            <a class="navbar-item" href="/fitness/">
+                
+                Fitness
+                
+            </a>
+            
+            
+            
+        </div>
+    </nav>
+    <hr>
+</div>
+
+
+
+                
+    <div class="container markdown top-pad">
+        
+
+<h1 id="weight-lifting">Weight Lifting</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+<canvas id="liftingChart" width="400" height="200"></canvas>
+<script>
+
+
+var dates = ['10/20', '10/22', "10/24", "10/26"]
+var liftingCtx = document.getElementById("liftingChart").getContext('2d');
+var myChart = new Chart(liftingCtx, {
+    type: 'line',
+    data: {
+        cubicInterpolationMode: 'default',
+        labels: dates,
+        datasets: [{
+            label: 'Overhead Press 3x5',
+            fill: false,
+            data: [75, null, 80, null],
+            backgroundColor: 'red',
+            borderColor: 'red'
+        },
+        {
+            label: 'Bench Press 3x5',
+            fill: false,
+            data: [115, null, 120, null],
+            backgroundColor: 'blue',
+            borderColor: 'blue'
+        },
+        {
+            label: 'Bent Over Barbell Row 3x5',
+            fill: false,
+            data: [110, null, 115, null],
+            backgroundColor: 'green',
+            borderColor: 'green'
+        },
+        {
+            label: 'Deadlift 1x5',
+            fill: false,
+            data: [225, null, null, 235],
+            backgroundColor: 'brown',
+            borderColor: 'brown'
+        },
+        {
+            label: 'Body Weight',
+            fill: true,
+            data: [193.4, 194.1, 193, 192.6],
+            backgroundColor: 'rgb(219, 114, 249)',
+            borderColor: 'purple'
+        }]
+    },
+    options: {
+        spanGaps: true,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<h1 id="running">Running</h1>
+
+<script></script>
+<canvas id="runningChart" width="400" height="200"></canvas>
+<script>
+
+var weeklyData = [0, 1.5, 1.8];
+
+var runningCtx = document.getElementById("runningChart").getContext('2d');
+var myChart = new Chart(runningCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Week 42', 'Week 43', 'Week 44'],
+        datasets: [{
+            label:"Weekly Milage",
+            data: weeklyData,
+            backgroundColor: 'red',
+            borderColor: 'red'
+        },
+        {
+            label: 'Cumulative Milage',
+            fill: true,
+            data: accumulateData(weeklyData),
+            backgroundColor: 'rgb(117, 164, 239)',
+            borderColor: 'blue',
+            type: 'line'
+        }]
+    },
+    options: {
+        spanGaps: true,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+function accumulateData(weeklyData) {
+    var cumulativeData = [];
+    for (i =0; i<weeklyData.length; i++) {
+        if (i==0) {
+            cumulativeData[i] = weeklyData[i];
+        } else {
+            cumulativeData[i] = cumulativeData[i-1] + weeklyData[i];
+        }
+    }
+    return cumulativeData;
+}
+</script>
+
+    </div>
+    <div class="container">
+        <ul>
+            
+        </ul>
+    </div>
+</body>
+
+
+                
+                <div class="container">
+    <hr>
+</div>
+<div class="container has-text-centered top-pad">
+    <a href="#top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+</div>
+
+<div class="container">
+    <hr>
+</div>
+
+                <div class="section" id="footer">
+    <div class="container has-text-centered">
+    
+        <span class="footer-text">
+            <a href="https://github.com/vickylai/hugo-theme-introduction/"><strong>Introduction</strong></a> theme for <a href="http://gohugo.io/">Hugo</a>. Made with <a href="https://vickylai.com"><i class="fa fa-heart"></i> and <i class="fa fa-coffee"></i></a> by open source contributors.
+        </span>
+    
+    </div>
+</div>
+
+                
+            </div>
+        </section>
+        
+        
+
+
+<script src="https://drjorts.firebaseapp.com/js/bundle.4229c9bc1dddc27515d2b0e92ace2b52a5cf30b00aaccf4cf2b9d83ba5d69cc7.js" integrity="sha256-QinJvB3dwnUV0rDpKs4rUqXPMLAKrM9M8rnYO6XWnMc="></script>
+
+
+
+        
+        
+        
+        
+    </body>
+</html>
