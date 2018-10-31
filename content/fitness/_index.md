@@ -59,14 +59,7 @@ fetch('data.json').then(function(response) {
             }]
         },
         options: {
-            spanGaps: true,
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
+            spanGaps: true
         }
     });
 });
