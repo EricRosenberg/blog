@@ -8,9 +8,10 @@ install:
   - cd functions
   - npm install
   - cd ..
+  - pwd
 
 script:
-  - hugo
+  - hugo --renderToDisk
 
 deploy:
   skip_cleanup: true
