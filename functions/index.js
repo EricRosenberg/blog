@@ -4,10 +4,10 @@ const functions = require('firebase-functions');
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.helloWorld = functions.https.onRequest((request, response) => {
-		var ohp = [75, 80];
+		var ohp = [75, 80, 85];
 		var bench = [115, 120];
 		var row = [110, 115];
-		var deadlift = [225, 235];
+		var deadlift = [225, 235, 245];
 		var bodyWeight = [193.4, 194.1, 193, 192.6, 192.3];
 
 		for (i=0; i < bodyWeight.length; i++) {
