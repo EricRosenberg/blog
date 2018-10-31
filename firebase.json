@@ -5,6 +5,9 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "rewrites": [ {
+      "source": "/fitness/data.json", "function": "helloWorld"
+    } ]
   }
 }
