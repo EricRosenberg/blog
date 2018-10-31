@@ -11,6 +11,8 @@ install:
 
 script:
   - hugo
+  - ls
+  - ls public
 
 deploy:
   skip_cleanup: true
