@@ -10,7 +10,7 @@ install:
   - cd ..
 
 script:
-  - HUGO_THEME=mytheme hugo -v
+  - HUGO_THEME=introduction hugo -v -t introduction
   - ls
   - ls public
 
