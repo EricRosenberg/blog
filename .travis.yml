@@ -8,6 +8,7 @@ install:
   - cd functions
   - npm install
   - cd ..
+  - rm -rf public
 
 script:
   - hugo
