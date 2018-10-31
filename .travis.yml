@@ -10,7 +10,7 @@ install:
   - cd ..
 
 script:
-  - hugo
+  - hugo -v
   - ls
   - ls public
 
