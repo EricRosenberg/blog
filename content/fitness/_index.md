@@ -108,7 +108,7 @@ var myChart = new Chart(runningCtx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:false
                 }
             }]
         }
