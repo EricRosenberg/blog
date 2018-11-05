@@ -1,0 +1,63 @@
+{{ define "title" }}
+{{ with .Site.GetPage "/burgers" }}
+    <h1 class="bold-title is-1">{{ .Title }}</h1>
+{{ end }}
+{{ end }}
+
+{{ define "main" }}
+    <div class="container">
+        <h2 class="title is-1 top-pad strong-post-title" style="margin-bottom: 0px">
+            <a href="{{ .Params.yelp }}">{{ .Title }}</a>
+        </h2>
+        <div class="post-data">
+            {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}
+            {{ end }}
+        </div>
+        {{ if or .Site.Params.share.twitter .Site.Params.share.facebook .Site.Params.share.pinterest .Site.Params.share.googlePlus }}
+        {{ end }}
+        {{ if .Params.tags }}
+        {{ $len := (len .Params.tags) }}
+        <p>
+            Tag{{ if gt $len 1 }}s{{ end }}:
+            {{ range $index, $tag := .Params.tags }}
+            <a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>{{ if ne (add $index 1) $len }},{{ end }}
+            {{ end }}
+        </p>
+        {{ end }}
+    </div>
+    <!-- Begin blog post content -->
+
+
+    <div class="container top-pad">
+        {{ if .Params.Image }}
+            <div class="columns">
+                <div class="column is-one-third has-text-centered">
+                    {{ with .Resources.GetMatch .Params.Image }}
+                        {{ with .Resize "x320 q100" }}
+                            <img class="img-responsive avatar" src="{{ .Permalink }}" alt="{{ .Name }}">
+                        {{ end }}
+                    {{ end }}
+                </div>
+                <div class="markdown column">
+                    <h4>Patty: {{ .Params.score.patty }}</h4>
+                    <h4>Bun: {{ .Params.score.bun }}</h4>
+                    <h4>Accoutrements: {{ .Params.score.accoutrements }}</h4>
+                    <h4>Starch: {{ .Params.score.starch }}</h4>
+                    <h4>Overall Experience: {{ .Params.score.overall }}</h4>
+                </div>
+            </div>
+            <div class="container  top-pad">
+                {{ .Content }}
+            </div>
+        {{ else }}
+            <div class="markdown has-text-centered">
+                {{ .Content }}
+            </div>
+        {{ end }}
+        </div>
+
+    <!-- End blog post content -->
+    <div class="disqus">
+        {{ template "_internal/disqus.html" . }}
+    </div>
+{{ end }}

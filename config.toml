@@ -11,7 +11,7 @@ theme                            = "introduction"
     fadeInIndex                  = false                   # Turn on/off the fade-in effect on the index page even if fade-in was otherwise turned off
     dateFormat                   = "Jan 2, 2006"
     email                        = "Eric@DrJorts.com"   # E-mail address for contact section
-    # customCSS                    = ["foo.css"]             # Include custom css files placed under assets/
+    customCSS                    = ["burger_single.css"]             # Include custom css files placed under assets/
 
     # Configure the home page
     [params.home]
@@ -27,10 +27,10 @@ theme                            = "introduction"
 
     # Share buttons on blog post pages
     [params.share]
-        twitter                  = true
-        facebook                 = true
-        googlePlus               = true
-        pinterest                = true
+        twitter                  = false
+        facebook                 = false
+        googlePlus               = false
+        pinterest                = false
 
     # Social icons appear in introduction and contact section. Add as many more as you like.
     # Find icon names here: https://fontawesome.com/cheatsheet/
@@ -49,7 +49,7 @@ theme                            = "introduction"
      weight  = 2
  [[menu.main]]
      name    = "Burgers"
-     url     = "/blog/"
+     url     = "/burgers/"
      weight  = 3
  [[menu.main]]
      name    = "Fitness"
