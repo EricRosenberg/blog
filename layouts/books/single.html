@@ -1,0 +1,58 @@
+{{ define "title" }}
+{{ with .Site.GetPage "/books" }}
+    <h1 class="bold-title is-1">{{ .Title }}</h1>
+{{ end }}
+{{ end }}
+
+{{ define "main" }}
+    <div class="container">
+        <h2 class="title is-1 top-pad strong-post-title" style="margin-bottom: 0px">
+            <a href="{{ .Params.amazon }}">{{ .Title }}</a>
+        </h2>
+        <h2 class="subtitle  top-pad" style="margin-bottom: 0px">
+            <a href="{{ .Params.amazon }}">{{ .Params.author }}</a>
+        </h2>
+        <div class="post-data">
+            {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}
+            {{ end }}
+        </div>
+        {{ if or .Site.Params.share.twitter .Site.Params.share.facebook .Site.Params.share.pinterest .Site.Params.share.googlePlus }}
+        {{ end }}
+        {{ if .Params.tags }}
+        {{ $len := (len .Params.tags) }}
+        <p>
+            Tag{{ if gt $len 1 }}s{{ end }}:
+            {{ range $index, $tag := .Params.tags }}
+            <a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>{{ if ne (add $index 1) $len }},{{ end }}
+            {{ end }}
+        </p>
+        {{ end }}
+    </div>
+    <!-- Begin blog post content -->
+
+    <div class="container top-pad">
+        {{ if .Params.Image }}
+            <div class="columns">
+                <div class="column is-one-third has-text-centered">
+                    {{ with .Resources.GetMatch .Params.Image }}
+                        {{ with .Resize "320x q100" }}
+                            <img class="img-responsive avatar" src="{{ .Permalink }}" alt="{{ .Name }}">
+                        {{ end }}
+                    {{ end }}
+                </div>
+                <div class="markdown column">
+                    {{ .Content }}
+                </div>
+            </div>
+        {{ else }}
+            <div class="markdown has-text-centered">
+                {{ .Content }}
+            </div>
+        {{ end }}
+        </div>
+
+    <!-- End blog post content -->
+    <div class="disqus">
+        {{ template "_internal/disqus.html" . }}
+    </div>
+{{ end }}
